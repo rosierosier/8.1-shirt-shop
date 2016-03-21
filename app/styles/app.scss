@@ -1,0 +1,58 @@
+
+// Bootstrap Variables
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
+// Import Bootstrap
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.tshirt-list {
+
+}
+
+.tshirt-image {
+
+}
+
+.tshirt-image img {
+
+}
+
+.tshirt-image h1 {
+  color: red;
+}
+
+.tshirt-image p {
+
+}
+
+.quantity {
+  display: inline-block;
+  float: left;
+}
+
+.tshirt-quantity-input {
+  display: inline-block;
+}
+
+.size {
+  display: inline-block;
+}
+
+.add-to-cart {
+  display: inline-block;
+}
+
+.btn btn-primary {
+  display: inline-block;
+}
