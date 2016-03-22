@@ -5851,6 +5851,9 @@ img {
   color: gray;
   font-weight: bold; }
 
+.tshirt-list {
+  padding: 0; }
+
 .tshirt-image {
   padding: 10px;
   border: 1px solid gray;
@@ -5891,7 +5894,8 @@ img {
   display: inline-block;
   height: 34px;
   margin-right: 5px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  box-shadow: none; }
 
 .size {
   display: inline-block;
@@ -5913,5 +5917,22 @@ img {
 .btn-primary:hover {
   background-color: #ff69b4;
   border-color: #ff69b4; }
+
+.panel {
+  margin-top: 10px; }
+
+.animate-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in; }
+
+.animate-enter.animate-enter-active {
+  opacity: 1; }
+
+.animate-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in; }
+
+.animate-leave.animate-leave-active {
+  opacity: 0.01; }
 
 /*# sourceMappingURL=app.css.map */

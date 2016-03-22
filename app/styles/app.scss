@@ -59,8 +59,7 @@ img {
 }
 
 .tshirt-list {
-
-  // margin: 5px;
+  padding: 0;
 }
 
 .tshirt-image {
@@ -115,6 +114,7 @@ img {
   height: 34px;
   margin-right: 5px;
   border-radius: 4px;
+  box-shadow: none;
 }
 
 .size {
@@ -141,4 +141,30 @@ img {
 .btn-primary:hover {
   background-color: #ff69b4;
   border-color: #ff69b4;
+}
+
+.panel {
+  margin-top: 10px;
+}
+
+
+
+
+
+.animate-enter {
+  opacity    : 0.01;
+  transition : opacity .5s ease-in;
+}
+
+.animate-enter.animate-enter-active {
+  opacity : 1;
+}
+
+.animate-leave {
+  opacity    : 1;
+  transition : opacity .5s ease-in;
+}
+
+.animate-leave.animate-leave-active {
+  opacity : 0.01;
 }

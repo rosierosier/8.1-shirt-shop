@@ -1,100 +1,48 @@
 console.log('Hello Router!');
 
 var $ = require('jquery');
+var _ = require('underscore');
 var Backbone = require('backbone');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var RouterMixin = {
-  componentWillMount: function(){
-    this.callback = function(){
-      this.forceUpdate();
-    }.bind(this);
-    this.props.router.on('route', this.callback);
-  },
-  componentWillUnmount: function(){
-    this.props.router.off('route', this.callback);
-  },
-};
-
-var TShirtComponent = React.createClass({
-  mixins: [RouterMixin],
-  render: function(){
-    var className = "animate-leave animate-leave-active";
-    if (this.props.router.current =="bar"){
-      className = "animate-enter animate-enter-active";
-    }
-    return (
-      <div className={className}>
-        foo. <a href="#bar">Go To Bar</a>
-      </div>
-    );
-  }
-});
-
-var BarComponent = React.createClass({
-  mixins: [RouterMixin],
-  render: function(){
-    var className = "animate-leave animate-leave-active";
-    if (this.props.router.current =="bar"){
-      className = "animate-enter animate-enter-active";
-    }
-    return (
-      <div className={className}>
-        bar. <a href="#foo">Go To Foo</a>
-      </div>
-    );
-  }
-});
-
-var AppComponent = React.createClass({
-  mixins: [RouterMixin],
-  render: function(){
-    return (
-      <div>
-        <FooComponent router={this.props.router}/>
-        <BarComponent router={this.props.router}/>
-      </div>
-    );
-  }
-});
+// var AppRouter = Backbone.Router.extend({
+//     routes: {
+//         "cart": "shoppingCart",
+//         "*actions": "defaultRoute"
+//         // Backbone will try to match the route above first
+//     }
+// });
+// // Instantiate the router
+// var newAppRouter = new AppRouter;
+// newAppRouter.on('route:shoppingCart', function(){
+//     console.log('routing to shopping cart');
+// });
+// newAppRouter.on('route:defaultRoute', function(actions){
+//     console.log('default route');
+// });
+// // Start Backbone history a necessary step for bookmarkable URL's
+// Backbone.history.start();
 
 var Router = Backbone.Router.extend({
   routes: {
     "": "index",
-    "foo(/:id)": "foo",
-    "bar": "bar"
+    "cart": "cart"
   },
   index: function(){
-    console.log("index");
+    console.log("index working");
     this.current = "index";
   },
-  foo: function(){
-    console.log("foo");
-    // ReactDOM.render(
-    //   React.createElement(FooComponent),
-    //   document.getElementById('app')
-    // )
-    this.current = "foo";
-  },
-  bar: function(){
-    console.log("bar");
-    // ReactDOM.render(
-    //   React.createElement(BarComponent),
-    //   document.getElementById('app')
-    // )
-    this.current = "bar";
-  },
+  cart: function(){
+    console.log('cart working');
+    this.current = "cart";
+  }
 });
-
 var router = new Router();
 
-ReactDOM.render (
-  //for use in js (not jsx)
-  React.createElement(AppComponent, {router: router})
-  //if using jsx
-  // <AppComponent router={router} />
-  document.getElementById('app')
+React.renderComponent(
+  <InterfaceComponent router={router} />,
+  document.body
 );
 
 Backbone.history.start();
